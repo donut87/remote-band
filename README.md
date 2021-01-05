@@ -121,7 +121,7 @@ Unfortunately the connection of our bassist was so bad, Jamulus seemed to be unu
 ##### Private server and a faster connection
 Switching ISPs did the trick again. Ping and bandwith improved massively for our bassist and we had our last rehearsal with JamKazam on 29th of December. After that we had to have a new solution.
 
-So we decided against one of us hosting this at home, configuring port forwarding, sharing his current IP address with the band, and everybody connecting after copying the address in the to Jamulus client. It should be easy to use 😉. Only other solution was to rent a server. Since renting real hardware in some data center is expensive (we were kind of on a 50$/€ budget), we decided to try out a vServer, which are very cheap compared to bare metal servers. Having a budget of 50€ meant we could choose from a variety of providers and basically all plans. To not jeopardize the mission by being cheap, we opted for a 4 core vServer with 8GB RAM from 1&1/ionos. Turns out, these are some Intel Xeon Gold 5120 CPUs working there.
+So we decided against one of us hosting this at home, configuring port forwarding, sharing his current IP address with the band, and everybody connecting after copying the address in the to Jamulus client. It should be easy to use 😉. Only other solution was to rent a server. Since renting real hardware in some data center is expensive (we were kind of on a 50$/€ budget), we decided to try out a vServer, which are very cheap compared to bare metal servers. Having a budget of 50€ meant we could choose from a variety of providers and basically all plans. To not jeopardize the mission by being cheap, we opted for a 4 core vServer with 8GB RAM from 1&1/ionos for 16€/month. Turns out, these are some Intel Xeon Gold 5120 CPUs working there and it is of course a vmware machine.
 
 ##### Installing Jamulus
 Installing Jamulus is actually pretty easy, if you are familiar with linux and/or docker. You can install this directly to the system or just start up a [docker container](https://hub.docker.com/r/grundic/jamulus). Since starting up a docker container is fairly easy, I tested this. It also comes with a nice [docker-compose](https://github.com/grundic/jamulus-docker) file. The result was a little bit astonishing. Connecting to my server was easy enough after configuring the 1&1 firewall to open port 22124 and there it said overall latency 60ms with 25ms on my behalf (network plus hardware latency). Not bad!
@@ -129,6 +129,8 @@ Reading through the documentation of how to run your own server and the [Linux h
 
 ##### First real band rehearsal with Jamulus and private server
 Although the Jamulus wiki clearly states "Close every application, that deals with sound or internet!", we met at discord and Jamulus and started playing. Worked like a charm.
+
+The vServer is vastly oversized. I had htop open the whole time and the load average did not even make it over 0.5 and not even 600MB RAM were used. So we might scale down to half the size, which will reduce costs by half.
 
 ### Lessons learned
 
